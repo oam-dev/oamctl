@@ -1,0 +1,39 @@
+apiVersion: core.oam.dev/v1alpha1
+kind: ComponentSchematic
+metadata:
+  name: deployment-2migrate
+spec:
+  workloadType: core.oam.dev/v1alpha1.Server
+  containers:
+    - name: test
+      image: somefive/hello-world:dev
+      env:
+        - name: k1
+          fromParam: test-k1
+        - name: k2
+          fromParam: test-k2
+      ports:
+    parameters:
+      - name: test-k1
+        value: v1
+      - name: test-k2
+        value: v2
+---
+apiVersion: core.oam.dev/v1alpha1
+kind: ApplicationConfiguration
+metadata:
+  name: oam-app
+spec:
+  components:
+    - name: deployment-2migrate
+      instanceName: deployment-2migrate_instance
+      parameterValues:
+        - name: test-k1
+          value: v1
+        - name: test-k2
+          value: v2
+      traits:
+        - name: manual-scaler
+          parameterValues:
+            - name: replicaCount
+              value: 3
