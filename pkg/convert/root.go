@@ -20,10 +20,10 @@ import (
 )
 
 var (
-	cfgFile   string
-	nameSpace string
-	scheme    = runtime.NewScheme()
-	mgr       ctrl.Manager
+	cfgFile       string
+	nameSpace     string
+	runtimeScheme = runtime.NewScheme()
+	mgr           ctrl.Manager
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -46,14 +46,14 @@ func Execute() {
 }
 
 func init() {
-	_ = appsv1.AddToScheme(scheme)
-	_ = v1beta1.AddToScheme(scheme)
-	_ = corev1.AddToScheme(scheme)
-	_ = v2beta2.AddToScheme(scheme)
+	_ = appsv1.AddToScheme(runtimeScheme)
+	_ = v1beta1.AddToScheme(runtimeScheme)
+	_ = corev1.AddToScheme(runtimeScheme)
+	_ = v2beta2.AddToScheme(runtimeScheme)
 	var metricsAddr string
 	flag.StringVar(&metricsAddr, "metrics-addr", ":52014", "The address the metric endpoint binds to.")
 	flag.Parse()
-	m, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{Scheme: scheme, MetricsBindAddress: metricsAddr})
+	m, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{Scheme: runtimeScheme, MetricsBindAddress: metricsAddr})
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
