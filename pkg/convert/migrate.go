@@ -6,8 +6,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/spf13/cobra"
 	"github.com/oam-dev/oamctl/pkg/util"
+	"github.com/spf13/cobra"
 	v1 "k8s.io/api/apps/v1"
 	v12 "k8s.io/api/core/v1"
 	"k8s.io/api/extensions/v1beta1"
