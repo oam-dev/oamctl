@@ -103,7 +103,7 @@ spec:
         failureThreshold: {{.FailureThreshold}}
       {{- end}}
 {{- end}}
-    parameters:
+  parameters:
 {{- range $index, $element := .Deployment.Spec.Template.Spec.Containers}}
 {{- range $sub_index, $sub_element := $element.Env }}
     - name: {{$element.Name}}-{{$sub_element.Name}}

@@ -13,11 +13,11 @@ spec:
         - name: k2
           fromParam: test-k2
       ports:
-    parameters:
-      - name: test-k1
-        value: v1
-      - name: test-k2
-        value: v2
+  parameters:
+    - name: test-k1
+      value: v1
+    - name: test-k2
+      value: v2
 ---
 apiVersion: core.oam.dev/v1alpha1
 kind: ApplicationConfiguration

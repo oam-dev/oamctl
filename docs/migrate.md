@@ -79,7 +79,7 @@ spec:
         - name: k2
           fromParam: test-k2
       ports:
-    parameters:
+  parameters:
     - name: test-k1
       value: v1
     - name: test-k2
