@@ -11,6 +11,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ComponentSchematic
 metadata:
   name: {{.Deployment.Name}}
+  namespace: {{.Deployment.Namespace}}
 spec:
   workloadType: core.oam.dev/v1alpha1.Server
   containers:
@@ -115,6 +116,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ApplicationConfiguration
 metadata:
   name: {{.Name}}
+  namespace: {{.Deployment.Namespace}}
 spec:
   components:
     {{with .Deployment -}}
@@ -154,6 +156,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ComponentSchematic
 metadata:
   name: {{.Deployment.Name}}
+  namespace: {{.Deployment.Namespace}}
 spec:
   workloadType: core.oam.dev/v1alpha1.Server
   containers:
@@ -252,6 +255,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ApplicationConfiguration
 metadata:
   name: {{.Name}}
+  namespace: {{.Deployment.Namespace}}
 spec:
   components:
     {{with .Deployment -}}

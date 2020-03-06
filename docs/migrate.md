@@ -31,6 +31,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-2migrate
+  namespace: default
   labels:
     app: test
 spec:
@@ -68,6 +69,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ComponentSchematic
 metadata:
   name: deployment-2migrate
+  namespace: default
 spec:
   workloadType: core.oam.dev/v1alpha1.Server
   containers:
@@ -89,6 +91,7 @@ apiVersion: core.oam.dev/v1alpha1
 kind: ApplicationConfiguration
 metadata:
   name: oam-app
+  namespace: default
 spec:
   components:
     - name: deployment-2migrate
