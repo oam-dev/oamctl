@@ -1,3 +1,5 @@
+Please refer to [KubeVela](https://github.com/oam-dev/kubevela) for OAM application management.
+
 # oamctl
 
 oamctl is a tiny tool help oam user manage oam app.
